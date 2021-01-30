@@ -4,12 +4,11 @@ import './index.css';
 import './App.css';
 import './font.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import WebFont from 'webfontloader';
 import reportWebVitals from './reportWebVitals';
 import LandingPage from './landingPage/LandingPage';
-import HomePage from './homePage/HomePage';
+import HomePage from './component/SideBar';
 import Sub from './homePage/Sub';
-import DetailBook from './homePage/DetailBook';
+import DetailBook from './homePage/Profile';
 
 
 

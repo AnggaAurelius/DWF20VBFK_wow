@@ -4,7 +4,7 @@ import SideBar from '../component/SideBar';
 
 export const Detailbook = () => {
     return (
-        <div className=" bg row pt-4">
+        <div className="  row pt-4">
             <SideBar/>
             <div className="col-md-7" >
                 <img className="cover mt-5 float-left mr-5" src={cover} alt=""/>

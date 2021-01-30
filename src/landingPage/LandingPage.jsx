@@ -1,7 +1,7 @@
 import React, {useState}from 'react';
 import bg from './bgland.png';
 import wow from './wow.png';
-import { Button, Form } from 'react-bootstrap';
+import { Form } from 'react-bootstrap';
 
 
 const LandingPage = () => {
@@ -15,47 +15,53 @@ const LandingPage = () => {
         setSignInModal(false);
         setDisplayModal(false);
     }
+    const [formDataRegister, setFormDataRegister] = useState({
+        email: '',
+        password : '',
+        fullname : ''
+    });
+    
+    const {email, password, fullname} = formDataRegister;
+
+    const handleChangeRegister=(e)=> {
+        setFormDataRegister({
+            ...formDataRegister, [e.target.name]: e.target.value
+        });
+    }
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        
+    }
     return (
         <div className="bg ">
             <img className="img" src={bg} alt=""/>       
             <img className="wow" src={wow} alt="" />
             <p className="desc">Sign-up now and subscribe to enjoy all the cool and latest books - The best book rental service provider in Indonesia</p>
-            <Button className="sign mrh avenir " variant="danger" onClick={() => setDisplayModal(!signUpModal)}>Sign Up</Button>
+            <button className="sign  avenir btn-red " variant="danger" onClick={() => setDisplayModal(!signUpModal)}>Sign Up</button>
             <button className="sign sign-in avenir bold"  onClick={() => setSignInModal(!signInModal)}>Sign In</button>
-            <div className={`Modal ${signUpModal ? "Show" : ""}`}>
-                <h3 className="mgtop">Sign Up</h3><br/>
-                <button
-                className="Close"
-                onClick={() => setDisplayModal(!signUpModal)}
-                >
-                x
-                </button>
-                <Form >
+            <div className={`pl-5 pr-5 Modal ${signUpModal ? "Show" : ""}`}>
+                <h3 className="mgtop pt-4 bold">Sign Up</h3><br/>
+                <Form  onSubmit={handleSubmit}>
                     <Form.Group controlId="formBasicEmail">
-                        <Form.Control type="email" placeholder="Email" />
+                        <Form.Control className="p-3" type="email" placeholder="Email" name="email" value={email} onChanged={e => handleChangeRegister(e)} />
                     </Form.Group>
                     <Form.Group controlId="formBasicPassword">
-                        <Form.Control type="password" placeholder="Password" />
+                        <Form.Control type="password" placeholder="Password" name="password" onChanged={e => handleChangeRegister(e)}/>
                     </Form.Group>
                     <Form.Group controlId="formFullName">
-                        <Form.Control type="text" placeholder="Full Name" />
+                        <Form.Control type="text" placeholder="Full Name" name="fullname" onChanged={e => handleChangeRegister(e)}/>
                     </Form.Group>
                     <br/>
-                    <Button className="w00 mrh" variant="danger" type="submit">Submit</Button>
+                    <button className="w00 btn-red" type="submit">Sign Up</button>
                     <div><br/>
-                        <p>Already have an account ? <a className="text-dark" href="#" onClick={() => switchh(true)}><strong > Klik Here</strong></a></p>
+                        <p>Already have an account ? <a className="text-dark"  onClick={() => switchh(true)}><strong > Klik Here</strong></a></p>
                     </div>
                 </Form>
                 
             </div>
-            <div className={`avenir w p-5 Modal ${signInModal ? "Show" : ""}`}>
-                <h3 className="mgtop">Sign In</h3><br/>
-                <button
-                className="Close"
-                onClick={() => setSignInModal(!signInModal)}
-                >
-                x
-                </button>
+            <div className={` pl-5 pr-5 p-4 Modal ${signInModal ? "Show" : ""}`}>
+                <h3 className="mgtop bold">Sign In</h3><br/>
                 <Form >
                     <Form.Group controlId="formBasicEmail">
                         <Form.Control type="email" placeholder="Enter email" />
@@ -63,7 +69,7 @@ const LandingPage = () => {
                     <Form.Group controlId="formBasicPassword">
                         <Form.Control type="password" placeholder="Password" />
                     </Form.Group><br/>
-                    <Button  className="w00 mrh"  variant="danger" type="submit">Submit</Button>
+                    <button  className="w00 btn-red" type="submit">Submit</button>
                     <div><br />
                         <p>Don't have an account ? <a className="text-dark" href="#" onClick={() => switchh(false)}><strong > Klik Here</strong></a></p>
                     </div>

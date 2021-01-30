@@ -6,7 +6,7 @@ import SideBar from '../component/SideBar';
 
 export const Sub = () => {
     return (
-        <div className=" bg row pt-4">
+        <div className="  row pt-4">
             <SideBar/>
             <div className="col-md-7 text-center centerd" >
                 <h1 className="mb-5" ><strong>Premium</strong></h1>
