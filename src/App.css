@@ -37,10 +37,9 @@
   }
 }
 
-.bg {
-  background-color: #e5e5e5;
-  min-height: 100vh;
-  display: flex;
+body{
+background-color: #e5e5e5;
+overflow-x: hidden; /* Hide horizontal scrollbar */
 }
 
 .img {
@@ -53,7 +52,6 @@
   position: absolute;
   width: 130px;
   height: 35px;
-  /* margin-right: 20px; */
   left: 15%;
   top: 500px;
 }
@@ -81,86 +79,25 @@
   transform: rotate(1.62deg);
 }
 
-.wow2 {
-  position: absolute;
-  width: 380px;
-  height: 80px;
-  left: 12%;
-  top: 268px;
-}
-
-.desc {
-  position: absolute;
-  width: 450px;
-  height: 80px;
-  left: 15%;
-  top: 370px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 20px;
-  line-height: 25px;
-
-  color: #000000;
-}
-
 .w00 {
   width: 100%;
 }
 
 
-.Button {
-  cursor: pointer;
-  margin: 0 0 12px;
-  background-color: #fff;
-  border-color: #dbdbdb;
-  border-width: 1px;
-  color: #363636;
-  cursor: pointer;
-  justify-content: center;
-  padding-bottom: calc(0.5em - 1px);
-  padding-left: 1em;
-  padding-right: 1em;
-  padding-top: calc(0.5em - 1px);
-  text-align: center;
-  white-space: nowrap;
-  background-color: #00d1b2;
-  border-color: transparent;
-  color: #fff;
-  -webkit-appearance: none;
-  align-items: center;
-  border: 1px solid transparent;
-  border-radius: 4px;
-  box-shadow: none;
-  display: inline-flex;
-  font-size: 1rem;
-  height: 2.5em;
-  justify-content: flex-start;
-  line-height: 1.5;
-  padding-bottom: calc(0.5em - 1px);
-  padding-left: calc(0.75em - 1px);
-  padding-right: calc(0.75em - 1px);
-  padding-top: calc(0.5em - 1px);
-  position: relative;
-  vertical-align: top;
-}
-
 .CenterAlign {
-  top: 25%;
   position: absolute;
-  left: 50%;
-  transform: translate(-50%, -25%);
+  left: 25%;
 }
 
 .Overlay {
-  background-color: rgba(0, 0, 0, 0.55);
+  background-color: rgba(0, 0, 0, 0.103);
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
   position: fixed;
   display: none;
-  z-index: 5;
+  z-index: 1;
 }
 
 .Overlay.Show {
@@ -170,26 +107,150 @@
 .Modal {
   position: fixed;
   top: -150vh;
-  background-color: #fff;
-  width: 50%;
+  background-color: #ffffff;
+  width: 400px;
   box-shadow: 0 0 4px 0px rgba(0, 0, 0, 0.15);
-  left: 0;
+  left: 40%;
   padding: 0 12px 12px;
-  transition: all 0.3s ease-out;
-  z-index: 10;
+  transition: all 0.5s ease-out;
+  z-index: -1;
+  border-radius: 5px;
 }
 
 .Modal.Show {
-  top: 5vh;
+  
+  top: 30%;
+  z-index: 20;
 }
 
 .Close {
   cursor: pointer;
   position: absolute;
-  top: 16px;
+  top: 5px;
   right: 10px;
   background-color: transparent;
   border: 0;
   font-size: 18px;
 }
 
+.mgtop{
+  margin-top: 10px;
+}
+
+.logowow{
+  height:90px;
+  width: auto;
+  transform: rotate(-20deg);
+}
+.foto{
+  height:90px;
+  width: auto;
+}
+.bold{
+  font-size: 15px;
+  /* font-weight:bold; */
+}
+.mini{
+  height: 35px;
+  width: auto;
+  margin-left: 20%;
+}
+
+.mtop{
+  margin-top: 60px;
+  font-size: 25px;
+  color: #929292;
+}
+.mbot{
+  margin-bottom: 60px;
+}
+.line{
+  border: 1px solid #C9C9C9;
+  width: 200px;
+}
+.frame{
+  height: auto;
+  width: 110%;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.cover{
+  height: 500px;
+  width: auto;
+}
+
+.detxt{
+  margin-top: 160px;
+
+}
+.bwhknn{
+  width: 130px;
+  height: 35px;
+  margin-left: 90%;
+  
+}
+.smpic{
+  width: 50px;
+}
+.sub{
+  width: 300px;
+  margin-left: 32%;
+}
+.centerd{
+ margin-top: 10%;
+}
+label {
+  width: 300px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(255, 0, 0);
+  padding: 0.5rem;
+  font-family:Arial, Helvetica, sans-serif;
+  border:2px solid #a7a7a7;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  font-size: 16px;
+}
+.input{
+  height: 44px;
+}
+.flbtn{
+  height: 30px;
+}
+.subtn{
+  height: 45px;
+}
+.lbook{
+  width: 200px;
+}
+.pp{
+  background-color: #f7cbcb;
+  border-radius: 5px;
+}
+.mleft{
+  padding-left: 200px;
+}
+.mrh{
+  background: #D60000;
+  border-radius: 5px;
+}
+.w{
+  width: 400px;
+}
+
+.avenir{
+  /* font-weight:lighter; */
+  font-family: 'Nunito Sans', sans-serif;
+}
+.desc {
+  position: absolute;
+  width: 450px;
+  height: 80px;
+  left: 15%;
+  top: 370px;
+  font-family: 'Nunito Sans', sans-serif;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 25px;
+  color: #000000;
+}
