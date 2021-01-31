@@ -5,15 +5,13 @@ import './App.css';
 import './font.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import reportWebVitals from './reportWebVitals';
-import LandingPage from './landingPage/LandingPage';
-import HomePage from './component/SideBar';
-import Sub from './homePage/Sub';
-import DetailBook from './homePage/Profile';
+import App from './App';
+
 
 
 
 ReactDOM.render(
-  <LandingPage />, document.getElementById('root')
+  <App />, document.getElementById('root')
 );
 
 

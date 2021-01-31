@@ -8,8 +8,8 @@ import SideBar from '../component/SideBar';
 
 export const HomePage = () => {
     return (
-        <div className=" bg row pt-4">
-            {/* <SideBar/> */}
+        <div className="bg row pt-4">
+            <SideBar/>
             <div className="col-md-8" >
                 <div className="col" >
                     <img className="frame" src={frame} alt=""/>

@@ -1,0 +1,72 @@
+.bgland {
+  background-color: #e5e5e5;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+  display: block;
+  z-index: -1;
+}
+.form{
+    background: rgba(210, 210, 210, 0.25);
+    border: 1px solid #BCBCBC;
+    box-sizing: border-box;
+    border-radius: 4px;
+    height: 45px;
+}
+
+.desc {
+  position: absolute;
+  width: 450px;
+  height: 80px;
+  left: 15%;
+  top: 370px;
+  font-family: 'Nunito Sans', sans-serif;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 25px;
+  color: #000000;
+}
+
+.wow {
+  position: absolute;
+  width: 390px;
+  height: 260px;
+  left: 14%;
+  top: 100px;
+  transform: rotate(1.62deg);
+}
+
+.Overlay {
+  background-color: rgba(0, 0, 0, 0.103);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+  display: none;
+  z-index: 1;
+}
+
+.Overlay.Show {
+  display: block;
+}
+
+.Modal {
+  position: fixed;
+  top: -80vh;
+  background-color: #ffffff;
+  width: 400px;
+  box-shadow: 0 0 4px 0px rgba(0, 0, 0, 0.15);
+  left: 40%;
+  padding: 0 12px 12px;
+  transition: all 0.6s ease-out;
+  z-index: -2;
+  border-radius: 5px;
+}
+
+.Modal.Show {
+  top: 20%;
+  z-index: 20;
+}

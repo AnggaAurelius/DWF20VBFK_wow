@@ -6,6 +6,7 @@ import map from './image/map.png';
 import profil from './image/profil.png'
 import cover from './image/detailbook.png';
 import SideBar from '../component/SideBar';
+import {Link} from 'react-router-dom';
 
 
 export const HomePage = () => {
@@ -52,10 +53,13 @@ export const HomePage = () => {
                         </div>
                     </div>
                     <h2 className="timesNew pt-5 pb-5" >My List Book</h2>
+                    
                     <div className=" mr-3" >
+                        <Link to="/detail" as={Link} >
                          <img className="lbook" src={cover} alt=""/>
+                         </Link>
                          <h3 className="mt-3 timesNew" >Tess on the Rosad</h3>
-                         <p>Rachel Hartman</p>
+                         <p className="gray">Rachel Hartman</p>
                     </div>
                 </div>
                 
