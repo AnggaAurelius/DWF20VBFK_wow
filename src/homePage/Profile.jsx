@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useState, useContext} from 'react';
+import {AppContext} from '../component/GlobalContext';
 import email from './image/email.png';
 import gender from './image/gender.png';
 import call from './image/call.png';
@@ -6,13 +7,23 @@ import map from './image/map.png';
 import profil from './image/profil.png'
 import cover from './image/detailbook.png';
 import SideBar from '../component/SideBar';
-import {Link} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 
 
-export const HomePage = () => {
+
+const Profile = () => {
+    const history=useHistory();
+    const [state] = useContext(AppContext);
+    const [modal, setModal]=useState(false);
+    const subscribe = state.subscribe;
+     const tes=()=> {
+        {subscribe ? history.push("/detail"): setModal(true)}
+    }
     return (
         <div className=" bg row pt-4">
-            
+            <div className={`p-4 text-center red fs-18 Modalsub ${modal ? "Show" : ""}`}>
+                <p>please make a payment to read the book</p>
+            </div>
             <SideBar/>
             <div className="col-md-8" >
                 <div className="col" >
@@ -25,7 +36,7 @@ export const HomePage = () => {
                             <div>
                                 <img className=" float-left pt-3" src={email} alt=""/>
                                 <div className="ml-5 ">
-                                    <h5 className="font-weight-bold">anggaaurelius@gmail.com</h5>
+                                    <h5 className="font-weight-bold">egi474@gmail.com</h5>
                                     <p>email</p>
                                 </div>
                             </div>
@@ -55,18 +66,17 @@ export const HomePage = () => {
                     <h2 className="timesNew pt-5 pb-5" >My List Book</h2>
                     
                     <div className=" mr-3" >
-                        <Link to="/detail" as={Link} >
-                         <img className="lbook" src={cover} alt=""/>
-                         </Link>
+                         <img className="lbook flink" src={cover} alt="" onClick={tes}/>
                          <h3 className="mt-3 timesNew" >Tess on the Rosad</h3>
                          <p className="gray">Rachel Hartman</p>
                     </div>
-                </div>
-                
-            </div>
-             
+                </div>  
+              </div>
+            <div className={`Overlay ${modal ? "Show" : ""}`}
+                onClick={() => setModal(false)} />
+            <div className="bgland" />
         </div>
     )
 }
 
-export default HomePage;
+export default Profile;

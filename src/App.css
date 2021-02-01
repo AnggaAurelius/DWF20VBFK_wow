@@ -151,7 +151,7 @@ overflow-x: hidden; /* Hide horizontal scrollbar */
 }
 .frame{
   height: auto;
-  width: 110%;
+  width: 95%;
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -167,9 +167,9 @@ overflow-x: hidden; /* Hide horizontal scrollbar */
 .bwhknn{
   width: 130px;
   height: 35px;
-  margin-left: 90%;
-  
+  margin-left: 80%;
 }
+
 .smpic{
   width: 50px;
 }
@@ -237,8 +237,15 @@ label {
 .red{
   color:rgb(255, 7, 7);
 }
+.green{
+  color: #29BD11;
+;
+}
+.fs-20{
+  font-size: 18px;
+}
 .mlr{
-  margin: 160px 220px 130px 220px;
+  padding: 160px 220px 130px 220px;
 }
 .sticky{
   position: -webkit-sticky; /* Safari */
@@ -260,6 +267,12 @@ label {
 .fs-18{
   font-size: 18px;
 }
+.fs-25{
+  font-size: 25px;
+}
+.fs-50{
+  font-size: 50px;
+}
 label.fladd{
   width: 220px;
   padding: 0.0rem;
@@ -270,4 +283,45 @@ label.fladd{
   cursor: pointer;
   margin-top: 1rem;
   font-size: 16px;
+}
+.flink{
+  cursor: pointer;
+}
+.alert {
+  padding: 20px;
+  background-color: #f44336;
+  color: white;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
+
+.Modalsub {
+  position: fixed;
+  top: -80vh;
+  background-color: #ffffff;
+  width: 600px;
+  box-shadow: 0 0 4px 0px rgba(0, 0, 0, 0.15);
+  left: 40%;
+  padding: 0 12px 12px;
+  transition: all 0.6s ease-out;
+  z-index: -2;
+  border-radius: 5px;
+}
+
+.Modalsub.Show {
+  top: 20%;
+  z-index: 20;
 }

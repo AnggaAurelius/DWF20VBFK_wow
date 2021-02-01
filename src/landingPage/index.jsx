@@ -110,7 +110,7 @@ const LandingPage = () => {
                     </Form.Group><br/>
                     <div className="">
                     <button className="w00 btn-red"  type="submit">Sign Up</button>
-                        <p className="mt-4">Already have an account ? <a className="text-dark" href="/#" onClick={()=>switching(true)}><strong > Klik Here</strong></a></p>
+                        <p className="mt-4 text-center">Already have an account ? <a className="text-dark" href="/#" onClick={()=>switching(true)}><strong > Klik Here</strong></a></p>
                     </div>
                 </Form>
             </div>
@@ -128,7 +128,7 @@ const LandingPage = () => {
                     </Form.Group><br/>
                     <button  className="w00 btn-red" type="submit">Submit</button>
                     <div><br />
-                        <p>Don't have an account ? <a className="text-dark" href="/#" onClick={()=>switching(false)}><strong > Klik Here</strong></a></p>
+                        <p className="text-center">Don't have an account ? <a className="text-dark" href="/#" onClick={()=>switching(false)}><strong > Klik Here</strong></a></p>
                     </div>
                 </Form>
             </div>

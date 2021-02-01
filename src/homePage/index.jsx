@@ -1,43 +1,48 @@
-import React from 'react';
+import React, { useContext, useState } from "react";
+import { AppContext } from "../component/GlobalContext";
 import frame from './image/Frame.png';
 import cover from './image/detailbook.png';
-import c1 from './image/1.png';
-import c2 from './image/2.png';
-import c3 from './image/3.png';
+// import c1 from './image/1.png';
+// import c2 from './image/2.png';
+// import c3 from './image/3.png';
 import SideBar from '../component/SideBar';
+import {Books} from './dataBook';
+import {useHistory } from 'react-router-dom';
 
 export const HomePage = () => {
+    const history=useHistory();
+    const [state] = useContext(AppContext);
+    const [modal, setModal]=useState(false);
+    const subscribe = state.subscribe;
+    const tes=()=> {
+        {subscribe ? history.push("/detail"): setModal(true)}
+    }
+    
     return (
         <div className="bg row pt-4">
             <SideBar/>
-            <div className="col-md-8" >
+            <div className={`p-4 text-center red fs-18 Modalsub ${modal ? "Show" : ""}`}>
+                <p>please make a payment to read the latest books</p>
+            </div>
+            <div className="col-md-9" >
                 <div className="col" >
                     <img className="frame" src={frame} alt=""/>
-                    <h1 className="mt-5 mb-5" >List book</h1>
+                    <h1 className="mt-5 mb-5 timesNew" >List book</h1>
                 </div>
                 <div className=" row col" >
-                    <div className="ml-3 mr-3" >
-                         <img className="lbook" src={c1} alt=""/>
-                         <h3 className="mt-3" >Serangkai</h3>
-                         <p>Valerie Patkar</p>
-                    </div>
-                    <div className="ml-3 mr-3" >
-                         <img className="lbook" src={c2} alt=""/>
-                         <h3 className="mt-3" >Buku Siswa </h3>
-                         <p>Afi Yustiyana</p>
-                    </div>
-                    <div className="ml-3 mr-3" >
-                         <img className="lbook" src={c3} alt=""/>
-                         <h3 className="mt-3" >Kabar Rahasia</h3>
-                         <p>Kamil Yusuf</p>
-                    </div>
-                    <div className="ml-3 mr-3" >
-                         <img className="lbook" src={cover} alt=""/>
-                         <h3 className="mt-3" >Tess on the Rosad</h3>
-                         <p>Rachel Hartman</p>
-                    </div>
+                     {Books.map((Books) => (
+                //  <div className="col-md-3" key={product.id}>
+                        <div className="col-md-3 " key={Books.id} >
+                            <img className="lbook flink" src={cover} alt="" onClick={tes}/>
+                            <h3 className="mt-3 timesNew" >{Books.name} </h3>
+                            <p className="gray">{Books.penulis}</p>
+                        </div>
+                    ))}
                 </div>
             </div>
+            <div className={`Overlay ${modal ? "Show" : ""}`}
+                onClick={() => setModal(false)} />
+            <div className="bgland" />
         </div>
     )
 }

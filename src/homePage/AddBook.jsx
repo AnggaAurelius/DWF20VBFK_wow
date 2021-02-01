@@ -7,7 +7,7 @@ import foto from '../component/image/Profile.png';
 
 export const AddBook = () => {
     return ( 
-        <div className="" >
+        <div className="bg" >
             <img className="logowow ml-5 mt-5 sticky"  src={wow} alt=""/>
             <img className="logowow mt-5 sticky right mr-4"  src={foto} alt=""/>
                 <div className="mlr " >

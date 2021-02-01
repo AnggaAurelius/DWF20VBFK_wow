@@ -1,20 +1,21 @@
 import React from 'react';
 import wow from '../landingPage/wow.png';
-import file from './image/AttacheBook.png';
-import add from './image/addBook.png';
+import aksi from './image/aksi.png';
 import foto from '../component/image/Profile.png';
+import {Transaction} from './dataTransaction';
+import {Dropdown} from 'react-bootstrap';
 
 
 export const LisTrans = () => {
     return ( 
-        <div className="" >
+        <div className="bg full" >
             <img className="logowow ml-5 mt-5 sticky"  src={wow} alt=""/>
             <img className="logowow mt-5 sticky right mr-4"  src={foto} alt=""/>
                 <div className="mlr " >
                     <h1 className="mbot timesNew">Incoming Transaction</h1>
-                    <table class="table table-striped">
+                    <table className="table table-striped">
                         <thead>
-                            <tr>
+                            <tr className="red">
                             <th scope="co">No</th>
                             <th scope="col">Users</th>
                             <th scope="col">Bukti Transfer</th>
@@ -24,18 +25,29 @@ export const LisTrans = () => {
                             <th scope="col">Action</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        {Transaction.map((Transaction) => (
+                         <tbody key={Transaction.id}>
                             <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Bca.jpg</td>
-                            <td>23/Hari</td>
-                            <td>Active</td>
-                            <td>Aprove</td>
-                            <td>Ok</td>
+                            <th scope="row">{Transaction.id}</th>
+                            <td>{Transaction.name}</td>
+                            <td>{Transaction.bukti}</td>
+                            <td>{Transaction.aktif}</td>
+                            <td>{Transaction.status}</td>
+                            <td>{Transaction.pay}</td>
+                            <td>
+                                <Dropdown>
+                                    <Dropdown.Toggle variant="" id="dropdown-basic">
+                                        {/* <img className="ml-3" src={aksi} alt="" /> */}
+                                        </Dropdown.Toggle>
+                                    <Dropdown.Menu>
+                                        <Dropdown.Item href="#/action-1" ><p className="green bold">Approval</p></Dropdown.Item>
+                                        <Dropdown.Item href="#/action-2" ><p className="red bold">Cancel</p></Dropdown.Item>
+                                    </Dropdown.Menu>
+                                </Dropdown></td>
                             </tr>
-                            
-                        </tbody>
+                        </tbody>   
+                        ))}
+                        
                         </table>
                 </div>
             
@@ -44,3 +56,5 @@ export const LisTrans = () => {
 }
 
 export default LisTrans;
+
+ 

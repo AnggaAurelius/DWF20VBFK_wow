@@ -4,6 +4,7 @@ export const AppContext = createContext();
 
 const initialState = {
         isLogin: false,
+        subscribe: false,
     };
 
     const reducer = (state, action) => {
@@ -17,6 +18,11 @@ const initialState = {
                 return {
                     ...state,
                     isLogin: false,
+                };
+            case "premium" :
+                return {
+                    ...state,
+                    subscribe: true,
                 };
             default:
                 throw new Error();
