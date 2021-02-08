@@ -1,12 +1,12 @@
 import React, {useState, useContext} from 'react';
-import {AppContext} from '../component/GlobalContext';
+import {AppContext} from '../../component/GlobalContext';
 import email from './image/email.png';
 import gender from './image/gender.png';
 import call from './image/call.png';
 import map from './image/map.png';
 import profil from './image/profil.png'
 import cover from './image/detailbook.png';
-import SideBar from '../component/SideBar';
+import SideBar from '../../component/SideBar';
 import {useHistory} from 'react-router-dom';
 
 
@@ -17,7 +17,7 @@ const Profile = () => {
     const [modal, setModal]=useState(false);
     const subscribe = state.subscribe;
      const tes=()=> {
-        {subscribe ? history.push("/detail"): setModal(true)}
+        subscribe ? history.push("/detail"): setModal(true)
     }
     return (
         <div className=" bg row pt-4">

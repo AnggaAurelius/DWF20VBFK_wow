@@ -1,8 +1,8 @@
 import React,  { useState, useContext} from 'react';
-import { AppContext } from "../component/GlobalContext"
+import { AppContext } from "../../component/GlobalContext"
 import wow from './image/ow.png';
 import file from './image/Attache.png';
-import SideBar from '../component/SideBar';
+import SideBar from '../../component/SideBar';
 // import { Button, Form } from 'react-bootstrap';
 
 export const Sub = () => {

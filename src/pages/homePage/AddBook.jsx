@@ -1,15 +1,15 @@
 import React from 'react';
-import wow from '../landingPage/wow.png';
+import wow from '../landingPage/img/wow.png';
 import file from './image/AttacheBook.png';
 import add from './image/addBook.png';
-import foto from '../component/image/Profile.png';
+import foto from '../../component/image/Profile.png';
 
 
 export const AddBook = () => {
     return ( 
         <div className="bg" >
             <img className="logowow ml-5 mt-5 sticky"  src={wow} alt=""/>
-            <img className="logowow mt-5 sticky right mr-4"  src={foto} alt=""/>
+            <img className="logowow mt-5 sticky right mr-5"  src={foto} alt=""/>
                 <div className="mlr " >
                     <h1 className="mbot timesNew">Add Book</h1>
                     <form  className="">

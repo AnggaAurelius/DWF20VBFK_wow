@@ -1,8 +1,8 @@
 import React, {useState, useContext}from 'react';
-import { AppContext } from "../component/GlobalContext"
+import { AppContext } from "../../component/GlobalContext"
 import './style.css';
-import bg from './bgland.png';
-import wow from './wow.png';
+import bg from './img/bgland.png';
+import wow from './img/wow.png';
 import { Form } from 'react-bootstrap';
 import { useHistory } from "react-router-dom";
 import { Users } from './dataUser';
@@ -95,12 +95,12 @@ const LandingPage = () => {
             <p className="desc">Sign-up now and subscribe to enjoy all the cool and latest books - The best book rental service provider in Indonesia</p>
             <button className="sign  avenir btn-red " variant="danger" onClick={() => setSignUpModal(!signUpModal)}>Sign Up</button>
             <button className="sign sign-in avenir bold"  onClick={() => setSignInModal(!signInModal)}>Sign In</button>
-            
+            {/* Modal Sign up */}
             <div className={`pl-5 pr-5 Modal ${signUpModal ? "Show" : ""}`}>
                 <h3 className="mgtop pt-4 bold">Sign Up</h3><br/>
                 <Form  onSubmit={(e)=>registerSubmit(e)}>
                     <Form.Group controlId="formBasicEmail" className=" form">
-                        <Form.Control  className="p-3 form" type="email" placeholder="Enter email" name="email2" value={email2} onChange={(e)=>handleChangeRegister(e)} required/>
+                        <Form.Control  className="p-3 form" type="email" placeholder="Email" name="email2" value={email2} onChange={(e)=>handleChangeRegister(e)} required/>
                     </Form.Group>
                     <Form.Group controlId="formBasicPassword" className="form"  >
                         <Form.Control  className="form" type="password" placeholder="Password" name="password2" value={password2} onChange={(e)=>handleChangeRegister(e)} required/>
@@ -114,12 +114,12 @@ const LandingPage = () => {
                     </div>
                 </Form>
             </div>
-
+            {/* Modal Sign In */}
             <div className={` pl-5 pr-5 p-4 Modal ${signInModal ? "Show" : ""}`}>
                 <h3 className="mgtop bold">Sign In</h3><br/>
                 <Form onSubmit={(e) => onSubmit(e)}>
                     <Form.Group controlId="formBasicEmail"  className="form" >
-                        <Form.Control  className="form" type="email" placeholder="Enter email"
+                        <Form.Control  className="form" type="email" placeholder="Email"
                         name="email" value={email} onChange={(e)=>handleLogin(e)} required/>
                     </Form.Group>
                     <Form.Group controlId="formBasicPassword"  className="form" >
@@ -132,6 +132,7 @@ const LandingPage = () => {
                     </div>
                 </Form>
             </div>
+            {/* Overlay */}
             <div className={`Overlay ${signUpModal || signInModal ? "Show" : ""}`}
                 onClick={() => setOverlay()} />
             <div className="bgland" />

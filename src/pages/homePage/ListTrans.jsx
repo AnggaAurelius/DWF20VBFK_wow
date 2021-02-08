@@ -1,7 +1,7 @@
 import React from 'react';
-import wow from '../landingPage/wow.png';
-import aksi from './image/aksi.png';
-import foto from '../component/image/Profile.png';
+import wow from '../landingPage/img/wow.png';
+// import aksi from './image/aksi.png';
+import foto from '../../component/image/Profile.png';
 import {Transaction} from './dataTransaction';
 import {Dropdown} from 'react-bootstrap';
 
@@ -10,7 +10,7 @@ export const LisTrans = () => {
     return ( 
         <div className="bg full" >
             <img className="logowow ml-5 mt-5 sticky"  src={wow} alt=""/>
-            <img className="logowow mt-5 sticky right mr-4"  src={foto} alt=""/>
+            <img className="logowow mt-5 sticky right mr-5"  src={foto} alt=""/>
                 <div className="mlr " >
                     <h1 className="mbot timesNew">Incoming Transaction</h1>
                     <table className="table table-striped">

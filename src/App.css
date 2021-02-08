@@ -208,6 +208,7 @@ label {
 }
 .lbook{
   width: 200px;
+  border-radius: 10px;
 }
 .pp{
   background-color: #f7cbcb;
@@ -239,7 +240,6 @@ label {
 }
 .green{
   color: #29BD11;
-;
 }
 .fs-20{
   font-size: 18px;

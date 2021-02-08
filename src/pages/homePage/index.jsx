@@ -1,11 +1,7 @@
 import React, { useContext, useState } from "react";
-import { AppContext } from "../component/GlobalContext";
+import { AppContext } from "../../component/GlobalContext";
 import frame from './image/Frame.png';
-import cover from './image/detailbook.png';
-// import c1 from './image/1.png';
-// import c2 from './image/2.png';
-// import c3 from './image/3.png';
-import SideBar from '../component/SideBar';
+import SideBar from '../../component/SideBar';
 import {Books} from './dataBook';
 import {useHistory } from 'react-router-dom';
 
@@ -15,7 +11,7 @@ export const HomePage = () => {
     const [modal, setModal]=useState(false);
     const subscribe = state.subscribe;
     const tes=()=> {
-        {subscribe ? history.push("/detail"): setModal(true)}
+        subscribe ? history.push("/detail"): setModal(true)
     }
     
     return (
@@ -31,9 +27,8 @@ export const HomePage = () => {
                 </div>
                 <div className=" row col" >
                      {Books.map((Books) => (
-                //  <div className="col-md-3" key={product.id}>
                         <div className="col-md-3 " key={Books.id} >
-                            <img className="lbook flink" src={cover} alt="" onClick={tes}/>
+                            <img className="lbook flink" src={Books.imgUrl} alt="" onClick={tes}/>
                             <h3 className="mt-3 timesNew" >{Books.name} </h3>
                             <p className="gray">{Books.penulis}</p>
                         </div>

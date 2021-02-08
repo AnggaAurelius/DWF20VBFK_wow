@@ -1,10 +1,10 @@
 import React, {useContext} from 'react';
-import wow from '../landingPage/wow.png';
+import wow from '../pages/landingPage/img/wow.png';
 import foto from './image/Profile.png';
 import icon from './image/iconp.png';
 import sub from './image/sub.png';
 import logout from './image/logout.png';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Link } from "react-router-dom";
 import { AppContext } from "./GlobalContext";
 
 
