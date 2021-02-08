@@ -1,24 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+import './pages/landingPage/style.css';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {AppContextProvider} from "./component/GlobalContext";
+import { PrivateRoute } from "./component/PrivateRoute"
+import { PremiumRoute } from "./component/PremiumRoute"
+import LandingPage from "./pages/landingPage";
+import HomePage from "./pages/homePage";
+import Sub from "./pages/homePage/Sub";
+import Profile from "./pages/homePage/Profile";
+import DetailBook from "./pages/homePage/DetailBook";
+import AddBook from "./pages/homePage/AddBook";
+import ListTrans from "./pages/homePage/ListTrans";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    return (
+      <AppContextProvider>
+      <div>
+        <Router>
+          <Switch>
+            <Route path="/" exact component={LandingPage} />
+            <PrivateRoute exact path="/beranda" component={HomePage} />
+            <PrivateRoute path="/profile" exact component={Profile} />
+            <PrivateRoute path="/sub" exact component={Sub} />
+            <PremiumRoute path="/detail" exact component={DetailBook} />
+            <Route path="/add" exact component={AddBook} />
+            <Route path="/list" exact component={ListTrans} />
+          </Switch>
+        </Router>
+      </div>
+      </AppContextProvider>
   );
 }
 

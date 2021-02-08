@@ -36,9 +36,10 @@
     transform: rotate(360deg);
   }
 }
-
+.bg{
+  background-color: #e5e5e5;
+}
 body{
-background-color: #e5e5e5;
 overflow-x: hidden; /* Hide horizontal scrollbar */
 }
 
@@ -50,8 +51,8 @@ overflow-x: hidden; /* Hide horizontal scrollbar */
 
 .sign {
   position: absolute;
-  width: 130px;
-  height: 35px;
+  width: 150px;
+  height: 45px;
   left: 15%;
   top: 500px;
 }
@@ -59,7 +60,7 @@ overflow-x: hidden; /* Hide horizontal scrollbar */
   background-color: #c7c7c7;
   border: none;
   border-radius: 3px;
-  margin-left: 150px;
+  margin-left: 170px;
 }
 .sign-in:hover,
 .sign-in:active,
@@ -74,7 +75,7 @@ overflow-x: hidden; /* Hide horizontal scrollbar */
   background-color: #db0000;
   border: none;
   border-radius: 3px;
-  height: 35px;
+  height: 45px;
   
 }
 .btn-red:hover,
@@ -85,58 +86,16 @@ overflow-x: hidden; /* Hide horizontal scrollbar */
   border: 3px solid #860000;
 }
 
-
-.wow {
-  position: absolute;
-  width: 390px;
-  height: 260px;
-  left: 14%;
-  top: 100px;
-  transform: rotate(1.62deg);
-}
-
 .w00 {
   width: 100%;
 }
 
-
-.CenterAlign {
-  position: absolute;
-  left: 25%;
-}
-
-.Overlay {
-  background-color: rgba(0, 0, 0, 0.103);
+.full{
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
   position: fixed;
-  display: none;
-  z-index: 1;
-}
-
-.Overlay.Show {
-  display: block;
-}
-
-.Modal {
-  position: fixed;
-  top: -150vh;
-  background-color: #ffffff;
-  width: 400px;
-  box-shadow: 0 0 4px 0px rgba(0, 0, 0, 0.15);
-  left: 40%;
-  padding: 0 12px 12px;
-  transition: all 0.5s ease-out;
-  z-index: -1;
-  border-radius: 5px;
-}
-
-.Modal.Show {
-  
-  top: 30%;
-  z-index: 20;
 }
 
 .Close {
@@ -173,7 +132,14 @@ overflow-x: hidden; /* Hide horizontal scrollbar */
 
 .mtop{
   margin-top: 60px;
+}
+.linkSide{
   font-size: 25px;
+  color: #929292;
+}
+.linkSide:hover,
+.linkSide:focus{
+  text-decoration-color: transparent;
   color: #929292;
 }
 .mbot{
@@ -185,7 +151,7 @@ overflow-x: hidden; /* Hide horizontal scrollbar */
 }
 .frame{
   height: auto;
-  width: 110%;
+  width: 95%;
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -201,9 +167,9 @@ overflow-x: hidden; /* Hide horizontal scrollbar */
 .bwhknn{
   width: 130px;
   height: 35px;
-  margin-left: 90%;
-  
+  margin-left: 80%;
 }
+
 .smpic{
   width: 50px;
 }
@@ -226,17 +192,23 @@ label {
   margin-top: 1rem;
   font-size: 16px;
 }
-.input{
-  height: 44px;
-}
 .flbtn{
   height: 30px;
 }
 .subtn{
   height: 45px;
+  font-size: 16px;
+}
+.formsub{
+  background: rgba(210, 210, 210, 0.25);
+  border: 1px solid #BCBCBC;
+  box-sizing: border-box;
+  border-radius: 4px; 
+  height: 45px;
 }
 .lbook{
   width: 200px;
+  border-radius: 10px;
 }
 .pp{
   background-color: #f7cbcb;
@@ -244,11 +216,6 @@ label {
 }
 .mleft{
   padding-left: 200px;
-}
-
-.mrh{
-  background-color: #D60000;
-  border-radius: 5px;
 }
 
 .w{
@@ -259,19 +226,102 @@ label {
   /* font-weight:lighter; */
   font-family: 'Nunito Sans', sans-serif;
 }
-.desc {
-  position: absolute;
-  width: 450px;
-  height: 80px;
-  left: 15%;
-  top: 370px;
-  font-family: 'Nunito Sans', sans-serif;
-  font-style: normal;
-  font-size: 20px;
-  line-height: 25px;
-  color: #000000;
-}
+
 .timesNew{
   font-family:'Times New Roman', Times, serif;
   font-weight: bold;
+}
+.gray{
+  font-size: 18px;
+  color: #929292;
+}
+.red{
+  color:rgb(255, 7, 7);
+}
+.green{
+  color: #29BD11;
+}
+.fs-20{
+  font-size: 18px;
+}
+.mlr{
+  padding: 160px 220px 130px 220px;
+}
+.sticky{
+  position: -webkit-sticky; /* Safari */
+  position: fixed;
+  top: 0%;
+}
+.sticky.right{
+  right: 0%;
+  transform: rotate(0deg);
+  width: 55px;
+  height: auto;
+}
+.txtarea{
+  background: rgba(210, 210, 210, 0.25);
+  border: 1px solid #BCBCBC;
+  box-sizing: border-box;
+  border-radius: 4px; 
+}
+.fs-18{
+  font-size: 18px;
+}
+.fs-25{
+  font-size: 25px;
+}
+.fs-50{
+  font-size: 50px;
+}
+label.fladd{
+  width: 220px;
+  padding: 0.0rem;
+  font-family:Arial, Helvetica, sans-serif;
+  background-color: #f0f0f0;
+  border:2px ;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  font-size: 16px;
+}
+.flink{
+  cursor: pointer;
+}
+.alert {
+  padding: 20px;
+  background-color: #f44336;
+  color: white;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
+
+.Modalsub {
+  position: fixed;
+  top: -80vh;
+  background-color: #ffffff;
+  width: 600px;
+  box-shadow: 0 0 4px 0px rgba(0, 0, 0, 0.15);
+  left: 40%;
+  padding: 0 12px 12px;
+  transition: all 0.6s ease-out;
+  z-index: -2;
+  border-radius: 5px;
+}
+
+.Modalsub.Show {
+  top: 20%;
+  z-index: 20;
 }
