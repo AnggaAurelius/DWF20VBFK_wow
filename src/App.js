@@ -13,8 +13,8 @@ import HomePage from "./pages/homePage";
 import Sub from "./pages/homePage/Sub";
 import Profile from "./pages/homePage/Profile";
 import DetailBook from "./pages/homePage/DetailBook";
-import AddBook from "./pages/homePage/AddBook";
-import ListTrans from "./pages/homePage/ListTrans";
+import AddBook from "./pages/adminPage/AddBook";
+import ListTrans from "./pages/adminPage/ListTrans";
 
 function App() {
     return (

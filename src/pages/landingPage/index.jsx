@@ -47,7 +47,7 @@ const LandingPage = () => {
               dispatch({
                 type: "ADMIN"
             });
-            history.push('/add');
+            history.push('/list');
         }else if (user.length > 0) {
               dispatch({
                 type: "Login_sukses"

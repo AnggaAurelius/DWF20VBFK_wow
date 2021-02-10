@@ -2,7 +2,7 @@ import React from 'react';
 import wow from '../landingPage/img/wow.png';
 // import aksi from './image/aksi.png';
 import foto from '../../component/image/Profile.png';
-import {Transaction} from './dataTransaction';
+import {Transaction} from '../adminPage/dataTransaction';
 import {Dropdown} from 'react-bootstrap';
 
 
