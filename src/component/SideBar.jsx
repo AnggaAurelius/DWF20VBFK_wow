@@ -4,7 +4,7 @@ import foto from './image/Profile.png';
 import icon from './image/iconp.png';
 import sub from './image/sub.png';
 import logout from './image/logout.png';
-import { BrowserRouter as Link } from "react-router-dom";
+import { BrowserRouter as Router, Link } from "react-router-dom";
 import { AppContext } from "./GlobalContext";
 
 

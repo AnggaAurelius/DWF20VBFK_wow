@@ -15,10 +15,9 @@ const Profile = () => {
     const history=useHistory();
     const [state] = useContext(AppContext);
     const [modal, setModal]=useState(false);
-    const subscribe = state.subscribe;
-     const tes=()=> {
-        subscribe ? history.push("/detail"): setModal(true)
-    }
+    const isSubscribe = state.subscribe;
+    const subscribe=()=> isSubscribe ? history.push("/detail"): setModal(true);
+
     return (
         <div className=" bg row pt-4">
             <div className={`p-4 text-center red fs-18 Modalsub ${modal ? "Show" : ""}`}>
@@ -66,7 +65,7 @@ const Profile = () => {
                     <h2 className="timesNew pt-5 pb-5" >My List Book</h2>
                     
                     <div className=" mr-3" >
-                         <img className="lbook flink" src={cover} alt="" onClick={tes}/>
+                         <img className="lbook flink" src={cover} alt="" onClick={subscribe}/>
                          <h3 className="mt-3 timesNew" >Tess on the Rosad</h3>
                          <p className="gray">Rachel Hartman</p>
                     </div>

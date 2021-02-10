@@ -1,20 +1,36 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { AppContext } from "../../component/GlobalContext";
 import frame from './image/Frame.png';
 import SideBar from '../../component/SideBar';
-import {Books} from './dataBook';
 import {useHistory } from 'react-router-dom';
+import axios from "axios";
 
 export const HomePage = () => {
     const history=useHistory();
     const [state] = useContext(AppContext);
-    const [modal, setModal]=useState(false);
-    const subscribe = state.subscribe;
-    const tes=()=> {
-        subscribe ? history.push("/detail"): setModal(true)
+    const [modal, setModal] = useState(false);
+    const isSubscribe = state.subscribe;
+    const subscribe = () => isSubscribe ? history.push("/detail"): setModal(true);
+
+    const [loading, setLoading] = useState(true);
+    const [books, setBooks] = useState([]);
+    const getBooks = async () => { 
+        try {
+            setLoading(true);
+            const books = await axios.get("http://localhost:5000/api/v1/books");
+            setLoading(false);
+            setBooks(books.data.data.books);
+        } catch (error) {
+            console.log(error);
+        }
     }
-    
-    return (
+     useEffect(() => {
+        getBooks();
+     }, [])
+
+    return loading ? (
+        <h1>loading</h1>
+        ) :  (
         <div className="bg row pt-4">
             <SideBar/>
             <div className={`p-4 text-center red fs-18 Modalsub ${modal ? "Show" : ""}`}>
@@ -26,11 +42,11 @@ export const HomePage = () => {
                     <h1 className="mt-5 mb-5 timesNew" >List book</h1>
                 </div>
                 <div className=" row col" >
-                     {Books.map((Books) => (
+                    {books.map((Books) => (
                         <div className="col-md-3 " key={Books.id} >
-                            <img className="lbook flink" src={Books.imgUrl} alt="" onClick={tes}/>
-                            <h3 className="mt-3 timesNew" >{Books.name} </h3>
-                            <p className="gray">{Books.penulis}</p>
+                            <img className="lbook flink" src="https://i.ibb.co/k6JsZvG/4.png" alt="" onClick={subscribe}/>
+                            <h3 className="mt-3  timesNew text-truncate" >{Books.title} </h3>
+                            <p className="gray mb-5">{Books.author}</p>
                         </div>
                     ))}
                 </div>
