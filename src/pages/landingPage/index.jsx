@@ -21,7 +21,10 @@ const LandingPage = () => {
         setSignInModal(false);
         setSignUpModal(false);
     }
- 
+    
+    //
+    // Login
+    //
     const [loginFormData, setLoginFormData] = useState({
         email: "",
         password:"",
@@ -38,14 +41,20 @@ const LandingPage = () => {
         e.preventDefault();
 
         let user = Users.filter(data => data.email === email && data.password === password)
+        let admin = Users.filter(data =>  data.email === email && data.password === password && data.role === "ADMIN")
         // cek Auth User
-        if (user.length > 0) {
+        if (admin.length > 0) {
+              dispatch({
+                type: "ADMIN"
+            });
+            history.push('/add');
+        }else if (user.length > 0) {
               dispatch({
                 type: "Login_sukses"
             });
             history.push('/beranda');
         }else{
-            alert("salah");
+            alert("server error");
         }
     }
 

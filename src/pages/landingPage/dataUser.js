@@ -4,13 +4,15 @@ export const Users = [
             "fullname" : "Angga Afrianto",
             "email" : "anggaaurelius@gmail.com",
             "password" : "123",
+            "role": "ADMIN"
         },
         {
             
             "id" : 2,
             "fullname" : "Dinda Ramadhani",
-            "email" : "dinda@gmail.com",
-            "password" : "12345678",
+            "email" : "a@as.com",
+            "password" : "123",
+            "role": "USER"
         },
         {
             

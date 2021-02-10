@@ -6,6 +6,8 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import {AppContextProvider} from "./component/GlobalContext";
 import { PrivateRoute } from "./component/PrivateRoute"
 import { PremiumRoute } from "./component/PremiumRoute"
+import { AdminRoute } from "./component/AdminRoute"
+
 import LandingPage from "./pages/landingPage";
 import HomePage from "./pages/homePage";
 import Sub from "./pages/homePage/Sub";
@@ -25,8 +27,8 @@ function App() {
             <PrivateRoute path="/profile" exact component={Profile} />
             <PrivateRoute path="/sub" exact component={Sub} />
             <PremiumRoute path="/detail" exact component={DetailBook} />
-            <Route path="/add" exact component={AddBook} />
-            <Route path="/list" exact component={ListTrans} />
+            <AdminRoute path="/add" exact component={AddBook} />
+            <AdminRoute path="/list" exact component={ListTrans} />
           </Switch>
         </Router>
       </div>
