@@ -36,11 +36,11 @@
     transform: rotate(360deg);
   }
 }
-.bg{
+.bg {
   background-color: #e5e5e5;
 }
-body{
-overflow-x: hidden; /* Hide horizontal scrollbar */
+body {
+  overflow-x: hidden; /* Hide horizontal scrollbar */
 }
 
 .img {
@@ -76,7 +76,6 @@ overflow-x: hidden; /* Hide horizontal scrollbar */
   border: none;
   border-radius: 3px;
   height: 45px;
-  
 }
 .btn-red:hover,
 .btn-red:active,
@@ -90,7 +89,7 @@ overflow-x: hidden; /* Hide horizontal scrollbar */
   width: 100%;
 }
 
-.full{
+.full {
   top: 0;
   bottom: 0;
   left: 0;
@@ -108,183 +107,181 @@ overflow-x: hidden; /* Hide horizontal scrollbar */
   font-size: 18px;
 }
 
-.mgtop{
+.mgtop {
   margin-top: 10px;
 }
 
-.logowow{
-  height:90px;
+.logowow {
+  height: 90px;
   width: auto;
   transform: rotate(-20deg);
 }
-.foto{
-  height:90px;
+.foto {
+  height: 90px;
   width: auto;
 }
-.bold{
-  font-weight:bold;
+.bold {
+  font-weight: bold;
 }
-.mini{
+.mini {
   height: 35px;
   width: auto;
   margin-left: 20%;
 }
 
-.mtop{
+.mtop {
   margin-top: 60px;
 }
-.linkSide{
+.linkSide {
   font-size: 25px;
   color: #929292;
 }
 .linkSide:hover,
-.linkSide:focus{
+.linkSide:focus {
   text-decoration-color: transparent;
   color: #929292;
 }
-.mbot{
+.mbot {
   margin-bottom: 60px;
 }
-.line{
-  border: 1px solid #C9C9C9;
+.line {
+  border: 1px solid #c9c9c9;
   width: 200px;
 }
-.frame{
+.frame {
   height: auto;
   width: 95%;
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-.cover{
+.cover {
   height: 500px;
   width: auto;
 }
 
-.detxt{
+.detxt {
   margin-top: 160px;
-
 }
-.bwhknn{
+.bwhknn {
   width: 130px;
   height: 35px;
   margin-left: 80%;
 }
 
-.smpic{
+.smpic {
   width: 50px;
 }
-.sub{
+.sub {
   width: 300px;
   margin-left: 32%;
 }
-.centerd{
- margin-top: 10%;
+.centerd {
+  margin-top: 10%;
 }
 label {
   width: 300px;
   background-color: rgb(255, 255, 255);
   color: rgb(255, 0, 0);
   padding: 0.5rem;
-  font-family:Arial, Helvetica, sans-serif;
-  border:2px solid #a7a7a7;
+  font-family: Arial, Helvetica, sans-serif;
+  border: 2px solid #a7a7a7;
   border-radius: 0.3rem;
   cursor: pointer;
   margin-top: 1rem;
   font-size: 16px;
 }
-.flbtn{
+.flbtn {
   height: 30px;
 }
-.subtn{
+.subtn {
   height: 45px;
   font-size: 16px;
 }
-.formsub{
+.formsub {
   background: rgba(210, 210, 210, 0.25);
-  border: 1px solid #BCBCBC;
+  border: 1px solid #bcbcbc;
   box-sizing: border-box;
-  border-radius: 4px; 
+  border-radius: 4px;
   height: 45px;
 }
-.lbook{
+.lbook {
   width: 200px;
   border-radius: 10px;
 }
-.pp{
+.pp {
   background-color: #f7cbcb;
   border-radius: 5px;
 }
-.mleft{
+.mleft {
   padding-left: 200px;
 }
 
-.w{
+.w {
   width: 400px;
 }
 
-.avenir{
-  /* font-weight:lighter; */
-  font-family: 'Nunito Sans', sans-serif;
+.avenir {
+  font-family: "Nunito Sans", sans-serif;
 }
 
-.timesNew{
-  font-family:'Times New Roman', Times, serif;
+.timesNew {
+  font-family: "Times New Roman", Times, serif;
   font-weight: bold;
 }
-.gray{
+.gray {
   font-size: 18px;
   color: #929292;
 }
-.red{
-  color:rgb(255, 7, 7);
+.red {
+  color: rgb(255, 7, 7);
 }
-.green{
-  color: #29BD11;
+.green {
+  color: #29bd11;
 }
-.fs-20{
+.fs-20 {
   font-size: 18px;
 }
-.mlr{
+.mlr {
   padding: 160px 220px 130px 220px;
 }
-.sticky{
+.sticky {
   position: -webkit-sticky; /* Safari */
   position: fixed;
   top: 0%;
 }
-.sticky.right{
+.sticky.right {
   right: 0%;
   transform: rotate(0deg);
   width: 55px;
   height: auto;
 }
-.txtarea{
+.txtarea {
   background: rgba(210, 210, 210, 0.25);
-  border: 1px solid #BCBCBC;
+  border: 1px solid #bcbcbc;
   box-sizing: border-box;
-  border-radius: 4px; 
+  border-radius: 4px;
 }
-.fs-18{
+.fs-18 {
   font-size: 18px;
 }
-.fs-25{
+.fs-25 {
   font-size: 25px;
 }
-.fs-50{
+.fs-50 {
   font-size: 50px;
 }
-label.fladd{
+label.fladd {
   width: 220px;
-  padding: 0.0rem;
-  font-family:Arial, Helvetica, sans-serif;
+  padding: 0rem;
+  font-family: Arial, Helvetica, sans-serif;
   background-color: #f0f0f0;
-  border:2px ;
+  border: 2px;
   border-radius: 0.3rem;
   cursor: pointer;
   margin-top: 1rem;
   font-size: 16px;
 }
-.flink{
+.flink {
   cursor: pointer;
 }
 .alert {
