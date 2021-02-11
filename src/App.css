@@ -164,8 +164,18 @@ body {
 }
 .bwhknn {
   width: 130px;
-  height: 35px;
-  margin-left: 80%;
+  height: 40px;
+  position: absolute;
+  right: 10px;
+  bottom: 1px;
+}
+
+.bwhkn2 {
+  width: 130px;
+  height: 40px;
+  position: absolute;
+  right: 160px;
+  bottom: 1px;
 }
 
 .smpic {

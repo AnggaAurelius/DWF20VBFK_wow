@@ -1,5 +1,6 @@
 import React from 'react';
 import cover from './image/detailbook.png';
+import list from './image/myList.png';
 import SideBar from '../../component/SideBar';
 
 export const Detailbook = () => {
@@ -20,10 +21,13 @@ export const Detailbook = () => {
                 </div>
                 <br/>
                 <h2 className="detxt timesNew mb-4">About this book</h2>
-                <p className="gray text-justify">In the medieval kingdom of Goredd, women are expected to be ladies, men are their protectors, and dragons get to be whomever they want. Tess, stubbornly, is a troublemaker. You can’t make a scene at your sister’s wedding and break a relative’s nose with one punch (no matter how pompous he is) and not suffer the consequences. As her family plans to send her to a nunnery, Tess yanks on her boots and sets out on a journey across the Southlands, alone and pretending to be a boy.
+                <p className="gray text-justify pb-5">In the medieval kingdom of Goredd, women are expected to be ladies, men are their protectors, and dragons get to be whomever they want. Tess, stubbornly, is a troublemaker. You can’t make a scene at your sister’s wedding and break a relative’s nose with one punch (no matter how pompous he is) and not suffer the consequences. As her family plans to send her to a nunnery, Tess yanks on her boots and sets out on a journey across the Southlands, alone and pretending to be a boy.
                     In the medieval kingdom of Goredd, women are expected to be ladies, men are their protectors, and dragons get to be whomever they want. Tess, stubbornly, is a troublemaker. You can’t make a scene at your sister’s wedding and break a relative’s nose with one punch (no matter how pompous he is) and not suffer the consequences. As her family plans to send her to a nunnery, Tess yanks on her boots and sets out on a journey across the Southlands, alone and pretending to be a boy.
                 </p>
-                <button className="mt-3 sign-in bwhknn mb-5"  >Read Book {'>'}</button>
+                <br/>
+                <button className="btn-red bwhkn2 mb-3">Add My list <img className="ml-3" src={list} alt=""/></button>
+                <button className="sign-in bwhknn mb-3">Read Book {' >'}</button>
+                
             </div>
         </div>
     )

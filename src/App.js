@@ -25,8 +25,8 @@ function App() {
             <Route path="/" exact component={LandingPage} />
             <PrivateRoute exact path="/beranda" component={HomePage} />
             <PrivateRoute path="/profile" exact component={Profile} />
-            <Route path="/sub" exact component={Sub} />
-            <PremiumRoute path="/detail" exact component={DetailBook} />
+            <PrivateRoute path="/sub" exact component={Sub} />
+            <PrivateRoute path="/detail" exact component={DetailBook} />
             <AdminRoute path="/add" exact component={AddBook} />
             <AdminRoute path="/list" exact component={ListTrans} />
           </Switch>
