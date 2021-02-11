@@ -1,16 +1,14 @@
 import React from 'react';
-import wow from '../landingPage/img/wow.png';
-// import aksi from './image/aksi.png';
-import foto from '../../component/image/Profile.png';
+
 import {Transaction} from '../adminPage/dataTransaction';
 import {Dropdown} from 'react-bootstrap';
+import AdminNavbar  from './Navbar';
 
 
 export const LisTrans = () => {
     return ( 
-        <div className="bg full" >
-            <img className="logowow ml-5 mt-5 sticky"  src={wow} alt=""/>
-            <img className="logowow mt-5 sticky right mr-5"  src={foto} alt=""/>
+        <div className=" full" >
+            <AdminNavbar />
                 <div className="mlr " >
                     <h1 className="mbot timesNew">Incoming Transaction</h1>
                     <table className="table table-striped">

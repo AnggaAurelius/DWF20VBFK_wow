@@ -10,7 +10,7 @@ export const AdminRoute = ({component : Component, ...rest}) => {
         <Route
           {...rest}
           render = {(props) => 
-            isAdmin ? <Component {...props}/> : <Redirect to="/list"/>
+            isAdmin ? <Component {...props}/> : <Redirect to="/"/>
           } 
         />
     );
