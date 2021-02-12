@@ -1,0 +1,17 @@
+.nav {
+  height: 20%;
+  min-height: 130px;
+}
+.reader {
+  padding: 0 45px;
+  /* margin-bottom: 10px; */
+  height: 100%;
+}
+.logoo {
+  padding-left: 120px;
+  padding-top: 10px;
+  height: 90px;
+  margin-top: 30px;
+  width: auto;
+  transform: rotate(-15deg);
+}

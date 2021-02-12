@@ -13,6 +13,7 @@ import HomePage from "./pages/homePage";
 import Sub from "./pages/homePage/Sub";
 import Profile from "./pages/homePage/Profile";
 import DetailBook from "./pages/homePage/DetailBook";
+import Read from "./pages/homePage/ReadEpub";
 import AddBook from "./pages/adminPage/AddBook";
 import ListTrans from "./pages/adminPage/ListTrans";
 
@@ -27,6 +28,7 @@ function App() {
             <PrivateRoute path="/profile" exact component={Profile} />
             <PrivateRoute path="/sub" exact component={Sub} />
             <PrivateRoute path="/detail" exact component={DetailBook} />
+            <Route path="/read" exact component={Read} />
             <AdminRoute path="/add" exact component={AddBook} />
             <AdminRoute path="/list" exact component={ListTrans} />
           </Switch>
