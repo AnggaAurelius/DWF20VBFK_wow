@@ -5,15 +5,22 @@ export const AppContext = createContext();
 const initialState = {
         isLogin: false,
         subscribe: false,
+        user: null,
         isAdmin: false
     };
 
     const reducer = (state, action) => {
         switch (action.type) {
             case "Login_sukses" :
+                localStorage.setItem("token", action.payload.token);
+
                 return {
                     ...state,
                     isLogin: true,
+                    user: {
+                        email: action.payload.email,
+                        fullName: action.payload.fullName,
+                    },
                 };
             case "Logout" :
                 return {

@@ -7,6 +7,7 @@ import {AppContextProvider} from "./component/GlobalContext";
 import { PrivateRoute } from "./component/PrivateRoute"
 import { PremiumRoute } from "./component/PremiumRoute"
 import { AdminRoute } from "./component/AdminRoute"
+import { setAuthToken } from "./config/api";
 
 import LandingPage from "./pages/landingPage";
 import HomePage from "./pages/homePage";
@@ -16,6 +17,10 @@ import DetailBook from "./pages/homePage/DetailBook";
 import Read from "./pages/homePage/ReadEpub";
 import AddBook from "./pages/adminPage/AddBook";
 import ListTrans from "./pages/adminPage/ListTrans";
+
+if (localStorage.token) {
+  setAuthToken(localStorage.token);
+}
 
 function App() {
     return (

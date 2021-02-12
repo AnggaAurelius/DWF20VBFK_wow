@@ -6,6 +6,7 @@ import wow from './img/wow.png';
 import { Form } from 'react-bootstrap';
 import { useHistory } from "react-router-dom";
 import { Users } from './dataUser';
+import { API, setAuthToken } from "../../config/api";
 
 
 const LandingPage = () => {
@@ -37,26 +38,35 @@ const LandingPage = () => {
         setLoginFormData({...loginFormData, [e.target.name]:e.target.value})
     };
  
-    const onSubmit = (e) => {
-        e.preventDefault();
+    const onSubmit = async (e) => {
+    e.preventDefault();
 
-        let user = Users.filter(data => data.email === email && data.password === password)
-        let admin = Users.filter(data =>  data.email === email && data.password === password && data.role === "ADMIN")
-        // cek Auth User
-        if (admin.length > 0) {
-              dispatch({
-                type: "ADMIN"
-            });
-            history.push('/list');
-        }else if (user.length > 0) {
-              dispatch({
-                type: "Login_sukses"
-            });
-            history.push('/beranda');
-        }else{
-            alert("server error");
-        }
+    try {
+      const body = JSON.stringify({
+        email,
+        password,
+      });
+
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      };
+
+      const user = await API.post("/login", body, config);
+
+      dispatch({
+        type: "Login_sukses",
+        payload: user.data.data.user,
+      });
+
+      setAuthToken(user.data.data.user.token);
+
+      history.push("/beranda");
+    } catch (error) {
+      console.log(error);
     }
+  };
 
     //
     // Register
