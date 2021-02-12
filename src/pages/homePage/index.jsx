@@ -3,7 +3,7 @@ import { AppContext } from "../../component/GlobalContext";
 import frame from './image/Frame.png';
 import SideBar from '../../component/SideBar';
 import {useHistory } from 'react-router-dom';
-import axios from "axios";
+import { API } from "../../config/api";
 
 export const HomePage = () => {
     const history=useHistory();
@@ -17,7 +17,7 @@ export const HomePage = () => {
     const getBooks = async () => { 
         try {
             setLoading(true);
-            const books = await axios.get("http://localhost:5000/api/v1/books");
+            const books = await API.get("/books");
             setLoading(false);
             setBooks(books.data.data.books);
         } catch (error) {
