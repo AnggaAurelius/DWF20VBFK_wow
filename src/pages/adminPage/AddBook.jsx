@@ -8,7 +8,7 @@ import AdminNavbar  from './Navbar';
 export const AddBook = () => {
     return ( 
         <div className="bg" >
-<AdminNavbar />
+            <AdminNavbar />
                 <div className="mlr " >
                     <h1 className="mbot timesNew">Add Book</h1>
                     <form  className="">
