@@ -16,7 +16,8 @@ const Navbar = () => {
  
     return (
         <div className="">
-            <img className="logowow ml-5 mt-5 sticky"  src={wow} alt=""/>
+            <Link to="/beranda" as={Link} >
+            <img className="logowow ml-5 mt-5 sticky"  src={wow} alt=""/></Link>
             <div className="container">
                 <div className="menu-container"> 
                      <button onClick={onClick} className="menu-trigger">

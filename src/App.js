@@ -1,13 +1,13 @@
-import React from "react";
+import React, { useState, useEffect} from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import './pages/landingPage/style.css';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import {AppContextProvider} from "./component/GlobalContext";
+import {AppContext, AppContextProvider} from "./component/GlobalContext";
 import { PrivateRoute } from "./component/PrivateRoute"
 import { PremiumRoute } from "./component/PremiumRoute"
 import { AdminRoute } from "./component/AdminRoute"
-import { setAuthToken } from "./config/api";
+import { API, setAuthToken } from "./config/api";
 
 import LandingPage from "./pages/landingPage";
 import HomePage from "./pages/homePage";
@@ -22,7 +22,34 @@ if (localStorage.token) {
   setAuthToken(localStorage.token);
 }
 
-function App() {
+const App = () => {
+  const [state, dispatch] = useState(AppContext);
+
+  const checkUser = async () => {
+    try {
+      const response = await API.get("/check-auth");
+
+      if (response.status === 401) {
+        return dispatch({
+          type: "AUTH_ERROR",
+        });
+      }
+
+      dispatch({
+        type: "USER_LOADED",
+        payload: response.data.data.user,
+      });
+    } catch (error) {
+      return dispatch({
+        type: "AUTH_ERROR",
+      });
+    }
+  };
+
+  useEffect(() => {
+    checkUser();
+  }, []);
+
     return (
       <AppContextProvider>
       <div>

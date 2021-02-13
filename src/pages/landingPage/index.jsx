@@ -1,4 +1,4 @@
-import React, {useState, useContext}from 'react';
+import React, {useState, useContext, useEffect}from 'react';
 import { AppContext } from "../../component/GlobalContext"
 import './style.css';
 import bg from './img/bgland.png';
@@ -12,6 +12,7 @@ import { API, setAuthToken } from "../../config/api";
 const LandingPage = () => {
     const history = useHistory();
     const [state, dispatch] = useContext(AppContext);
+
     const [signUpModal, setSignUpModal] = useState(false);
     const [signInModal, setSignInModal] = useState(false);
     const switching = (stateModal) => {
@@ -22,8 +23,10 @@ const LandingPage = () => {
         setSignInModal(false);
         setSignUpModal(false);
     }
-    
-    //
+    // useEffect(() => {
+    //     if (!state.loading && state.isLogin) history.push("/beranda");
+    //  }, [state]);
+    // //
     // Login
     //
     const [loginFormData, setLoginFormData] = useState({
@@ -35,7 +38,7 @@ const LandingPage = () => {
     const { email, password } = loginFormData;
 
     const handleLogin = (e) =>{
-        setLoginFormData({...loginFormData, [e.target.name]:e.target.value})
+        setLoginFormData({...loginFormData, [e.target.name]:e.target.value});
     };
  
     const onSubmit = async (e) => {

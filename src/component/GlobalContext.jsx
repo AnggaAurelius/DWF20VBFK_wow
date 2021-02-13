@@ -18,10 +18,20 @@ const initialState = {
                     ...state,
                     isLogin: true,
                     user: {
-                        email: action.payload.email,
+                        emaill: action.payload.email,
                         fullName: action.payload.fullName,
                     },
                 };
+             case "USER_LOADED":
+                    return {
+                        ...state,
+                        isLogin: true,
+                        user: {
+                        email: action.payload.email,
+                        fullName: action.payload.fullName,
+                        },
+                    };
+            case "AUTH_ERROR":
             case "Logout" :
                 return {
                     ...state,
