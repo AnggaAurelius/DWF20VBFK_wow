@@ -23,6 +23,7 @@ const LandingPage = () => {
         setSignInModal(false);
         setSignUpModal(false);
     }
+    console.log(state);
     // useEffect(() => {
     //     if (!state.loading && state.isLogin) history.push("/beranda");
     //  }, [state]);

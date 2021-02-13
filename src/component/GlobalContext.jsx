@@ -33,6 +33,7 @@ const initialState = {
                     };
             case "AUTH_ERROR":
             case "Logout" :
+                localStorage.removeItem("token");
                 return {
                     ...state,
                     isLogin: false,

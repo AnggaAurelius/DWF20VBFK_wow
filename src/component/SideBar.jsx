@@ -10,8 +10,14 @@ import { AppContext } from "./GlobalContext";
 
 
 export const SideBar = () => {
-    const [state] = useContext(AppContext);
+    const [state, dispatch] = useContext(AppContext);
     const subscribe = state.subscribe;
+
+    const handleLogOut = () => {
+        dispatch({
+            type: "Logout",
+        });
+    };
     return (
         <div className="col-md-3 " >
             <Link to="/beranda" as={Link} >
@@ -34,7 +40,7 @@ export const SideBar = () => {
                         </div>
                         <hr className="line" />
                             <div className=" mtop ">
-                                <Link to="/" as={Link} className="linkSide">
+                                <Link  to="/" className="linkSide" onClick={handleLogOut} >
                                 <img className="mini float-left"  src={logout} alt=""/><p className="" >&nbsp;&nbsp;Logout</p></Link>
                             </div>
                         </div>
