@@ -58,15 +58,23 @@ const LandingPage = () => {
       };
 
       const user = await API.post("/login", body, config);
+      const result = user.data.data.user;
 
-      dispatch({
-        type: "Login_sukses",
-        payload: user.data.data.user,
-      });
+      if (result.role === "ADMIN"){
+            dispatch({
+                type: "ADMIN",
+                payload: result,
+            });
+        history.push("/list");
+      } else {
+            dispatch({
+                type: "Login_sukses",
+                payload: result,
+            });
+        history.push("/beranda");
+      }
+      setAuthToken(result.token);
 
-      setAuthToken(user.data.data.user.token);
-
-      history.push("/beranda");
     } catch (error) {
       console.log(error);
     }

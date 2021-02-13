@@ -44,9 +44,15 @@ const initialState = {
                     subscribe: true,
                 };
             case "ADMIN" :
+                localStorage.setItem("token", action.payload.token);
+                
                 return {
                     ...state,
                     isAdmin: true,
+                    user: {
+                        emaill: action.payload.email,
+                        fullName: action.payload.fullName,
+                    },
                 };
             default:
                 throw new Error();

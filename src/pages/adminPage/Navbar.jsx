@@ -1,18 +1,21 @@
-import React, { useRef } from "react";
+import React, { useRef, useContext } from "react";
 import wow from '../landingPage/img/wow.png';
-// import aksi from './image/aksi.png';
 import foto from '../../component/image/Profile.png';
-import add from '../../component/image/add.png';
-import sub from '../../component/image/sub.png';
 import "./dropStyles.css";
 import { useDetectOutsideClick } from "./overlay";
 import { BrowserRouter as Router, Link } from "react-router-dom";
+import { AppContext } from "../../component/GlobalContext";
 
 const Navbar = () => {
-    
+  const [state, dispatch] = useContext(AppContext);
   const dropdownRef = useRef(null);
   const [isActive, setIsActive] = useDetectOutsideClick(dropdownRef, false);
   const onClick = () => setIsActive(!isActive);
+  const handleLogOut = () => {
+        dispatch({
+            type: "Logout",
+        });
+    };
  
     return (
         <div className="">
@@ -36,7 +39,9 @@ const Navbar = () => {
                                 Transaction</Link>
                             </li>
                             <li>
-                            <a href="#">Saved</a>
+                             <Link to="/" as={Link} onClick={handleLogOut} >
+                                {/* <img  className="mr-3" src={sub} alt=""/> */}
+                                Log Out</Link>
                             </li>
                         </ul>
                     </nav>
