@@ -86,30 +86,35 @@ const LandingPage = () => {
             ...formDataRegister, [e.target.name]: e.target.value
         });
     }
-    const registerSubmit = (e) => {
+    const registerSubmit = async (e) => {
         e.preventDefault();
 
-        const filterUser = () => Users.filter(data => data.email === email2);
-        let user = filterUser();
-        if (user.length > 0) {
-            console.log("filter user", user);
-            
-            alert("amail sudah di pakai")
-        }else if(user.length === 0){
-            Users.push({
-                id:Users.length+1,
-                fullname,
-                email,
-                password,
-            })
-            dispatch({
-                type: "Login_sukses"
-            });
-            history.push('/beranda');
-        }
-        else{
-            alert("salah");
-        }
+        try {
+      const body = JSON.stringify({
+        email: email2,
+        password: password2,
+        fullName: fullname,
+      });
+
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      };
+
+      const user = await API.post("/register", body, config);
+
+      dispatch({
+        type: "Login_sukses",
+        payload: user.data.data.user,
+      });
+
+      setAuthToken(user.data.data.user.token);
+
+      history.push("/beranda");
+    } catch (error) {
+      console.log(error);
+    }
     }
     return (
         <div className="bg">
