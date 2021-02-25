@@ -8,12 +8,12 @@
   display: block;
   z-index: -1;
 }
-.form{
-    background: rgba(210, 210, 210, 0.25);
-    border: 1px solid #BCBCBC;
-    box-sizing: border-box;
-    border-radius: 4px;
-    height: 45px;
+.form {
+  background: rgba(210, 210, 210, 0.25);
+  border: 1px solid #bcbcbc;
+  box-sizing: border-box;
+  border-radius: 4px;
+  height: 45px;
 }
 
 .desc {
@@ -22,7 +22,7 @@
   height: 80px;
   left: 15%;
   top: 370px;
-  font-family: 'Nunito Sans', sans-serif;
+  font-family: "Nunito Sans", sans-serif;
   font-style: normal;
   font-size: 20px;
   line-height: 25px;

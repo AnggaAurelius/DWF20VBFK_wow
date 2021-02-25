@@ -12,6 +12,7 @@ import { AppContext } from "./GlobalContext";
 export const SideBar = () => {
     const [state, dispatch] = useContext(AppContext);
     const subscribe = state.subscribe;
+    const user = state.user;
 
     const handleLogOut = () => {
         dispatch({
@@ -25,7 +26,7 @@ export const SideBar = () => {
             </Link><br/>
             <img className="foto mx-auto d-block"  src={foto} alt=""/>
             <div >
-                <h3 className="text-center font-weight-bold mt-5 mb-4">Egi Ganteng</h3>
+                <h3 className="text-center font-weight-bold mt-5 mb-4">{user.fullName}</h3>
                 {subscribe ? 
                 <p className="text-center green bold mt-3 fs-20">Subscribed</p> : 
                 <p className="text-center red bold mt-3">Not Subscribtion Yet</p>}

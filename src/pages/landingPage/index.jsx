@@ -5,7 +5,6 @@ import bg from './img/bgland.png';
 import wow from './img/wow.png';
 import { Form } from 'react-bootstrap';
 import { useHistory } from "react-router-dom";
-import { Users } from './dataUser';
 import { API, setAuthToken } from "../../config/api";
 
 
@@ -23,7 +22,7 @@ const LandingPage = () => {
         setSignInModal(false);
         setSignUpModal(false);
     }
-    console.log(state);
+    // console.log(state);
     // useEffect(() => {
     //     if (!state.loading && state.isLogin) history.push("/beranda");
     //  }, [state]);
@@ -162,7 +161,7 @@ const LandingPage = () => {
                         <Form.Control  className="form" type="password" placeholder="Password"
                          name="password" value={password} onChange={(e)=>handleLogin(e)} required/>
                     </Form.Group><br/>
-                    <button  className="w00 btn-red" type="submit">Submit</button>
+                    <button  className="w00 btn-red" type="submit">Sign in</button>
                     <div><br />
                         <p className="text-center">Don't have an account ? <a className="text-dark" href="/#" onClick={()=>switching(false)}><strong > Klik Here</strong></a></p>
                     </div>

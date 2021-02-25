@@ -57,7 +57,7 @@ export const LisTrans = () => {
         }
     };
     return loading ? (
-        <h1>loading</h1>
+        <h1>.</h1>
         ) :  ( 
         <div className="bgt " >
             <AdminNavbar />
@@ -83,8 +83,8 @@ export const LisTrans = () => {
                             <td><Button className="ml-3" variant="success" onClick={() => handleShow(Transaction.transferProof) }>Image</Button>
                             </td>
                             <td>{Transaction.remainingActive}</td>
-                            <td className={`${Transaction.userStatus == "active" ? "approve" : "red" }`}>{Transaction.userStatus}</td>
-                            <td className={`${Transaction.paymentStatus == "Approve" ? "approve" : Transaction.paymentStatus == "Cancel" ? "red" : "text-warning" }`}>{Transaction.paymentStatus}</td>
+                            <td className={`${Transaction.userStatus === "active" ? "approve" : "red" }`}>{Transaction.userStatus}</td>
+                            <td className={`${Transaction.paymentStatus === "Approve" ? "approve" : Transaction.paymentStatus === "Cancel" ? "red" : "text-warning" }`}>{Transaction.paymentStatus}</td>
                             <td>
                                 <div className="dropdown aksi">  
                                     <img className="" src={aksi} alt="" /> 
@@ -99,12 +99,11 @@ export const LisTrans = () => {
                                 </div>  
                                 </td>
                             </tr>
-                            
                         ))}
                         </tbody>
                     </table>
                     <Modal show={show} onHide={handleClose}>
-                        <Modal.Body className="center"><img src={`http://localhost:5000/uploads/${image}`} /></Modal.Body>
+                        <Modal.Body className="center"><img src={`http://localhost:5000/uploads/${image}`} className=" trsfProof" alt=""/></Modal.Body>
                     </Modal>
                 </div>
         </div>

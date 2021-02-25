@@ -6,11 +6,11 @@ import {useHistory } from 'react-router-dom';
 import { API } from "../../config/api";
 
 export const HomePage = () => {
-    const history=useHistory();
+    const history = useHistory();
     const [state] = useContext(AppContext);
     const [modal, setModal] = useState(false);
     const isSubscribe = state.subscribe;
-    const subscribe = () => isSubscribe ? history.push("/detail"): setModal(true);
+    const subscribe = (bookId) => isSubscribe ? history.push(`/detail/${bookId}`): setModal(true);
 
     const [loading, setLoading] = useState(true);
     const [books, setBooks] = useState([]);
@@ -29,7 +29,7 @@ export const HomePage = () => {
      }, [])
 
     return loading ? (
-        <h1>loading</h1>
+        <h1>.</h1>
         ) :  (
         <div className="bg row pt-4">
             <SideBar/>
@@ -44,7 +44,7 @@ export const HomePage = () => {
                 <div className=" row col" >
                     {books.map((Books) => (
                         <div className="col-md-3 " key={Books.id} >
-                            <img className="lbook flink" src="https://i.ibb.co/k6JsZvG/4.png" alt="" onClick={subscribe}/>
+                            <img className="lbook flink" src={`http://localhost:5000/uploads/${Books.thumbnail}`} alt="" onClick={() => subscribe(Books.id)}/>
                             <h3 className="mt-3  timesNew text-truncate" >{Books.title} </h3>
                             <p className="gray mb-5">{Books.author}</p>
                         </div>

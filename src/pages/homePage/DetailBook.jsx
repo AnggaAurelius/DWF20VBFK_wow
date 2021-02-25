@@ -1,36 +1,77 @@
-import React from 'react';
-import cover from './image/detailbook.png';
-import list from './image/myList.png';
-import SideBar from '../../component/SideBar';
+import React, { useState, useEffect } from "react";
+import list from "./image/myList.png";
+import SideBar from "../../component/SideBar";
+import { useParams, useHistory } from "react-router-dom";
+import { API } from "../../config/api";
 
 export const Detailbook = () => {
-    return (
-        <div className="bg  row pt-4">
-            <SideBar/>
-            <div className="col-md-8" >
-                <img className="cover mt-5 float-left mr-5" src={cover} alt=""/>
-                <p className="mt-5 timesNew fs-50" >Tess on the road</p>
-                <h1 className="gray fs-25">Rachel Hatman</h1>
-                <div className="mt-5" >
-                    <h3 className="bold">Publication date</h3>
-                    <p className="gray">April 2020</p>
-                    <h3 className="mt-4 bold">Pages</h3>
-                    <p className="gray">436</p>
-                    <h3 className="mt-4 red bold">ISBN</h3>
-                    <p className="gray">97684534326</p>
-                </div>
-                <br/>
-                <h2 className="detxt timesNew mb-4">About this book</h2>
-                <p className="gray text-justify pb-5">In the medieval kingdom of Goredd, women are expected to be ladies, men are their protectors, and dragons get to be whomever they want. Tess, stubbornly, is a troublemaker. You can’t make a scene at your sister’s wedding and break a relative’s nose with one punch (no matter how pompous he is) and not suffer the consequences. As her family plans to send her to a nunnery, Tess yanks on her boots and sets out on a journey across the Southlands, alone and pretending to be a boy.
-                    In the medieval kingdom of Goredd, women are expected to be ladies, men are their protectors, and dragons get to be whomever they want. Tess, stubbornly, is a troublemaker. You can’t make a scene at your sister’s wedding and break a relative’s nose with one punch (no matter how pompous he is) and not suffer the consequences. As her family plans to send her to a nunnery, Tess yanks on her boots and sets out on a journey across the Southlands, alone and pretending to be a boy.
-                </p>
-                <br/>
-                <button className="btn-red bwhkn2 mb-3">Add My list <img className="ml-3" src={list} alt=""/></button>
-                <button className="sign-in bwhknn mb-3">Read Book {' >'}</button>
-                
-            </div>
+  const [loading, setLoading] = useState(true);
+  const history = useHistory();
+  const { id } = useParams();
+  const [book, setBook] = useState([]);
+  const getBook = async () => {
+    try {
+      setLoading(true);
+      const findBook = await API.get(`/book/${id}`);
+
+      setBook(findBook.data.data.book);
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const addList = async () => {
+    try {
+      setLoading(true);
+      await API.post(`/addlist/${id}`);
+
+      alert("ok");
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    getBook();
+    window.scrollTo(0, 0);
+  }, []);
+
+  const readEpub = () => history.push(`/read/${id}`);
+
+  return loading ? (
+    <h1>.</h1>
+  ) : (
+    <div className="bg row pt-4">
+      <SideBar />
+      <div className="col-md-8">
+        <img
+          className="cover mt-5 float-left mr-5"
+          src={`http://localhost:5000/uploads/${book.thumbnail}`}
+          alt=""
+        />
+        <p className="mt-5 timesNew fs-50">{book.title}</p>
+        <h1 className="gray fs-25">{book.author}</h1>
+        <div className="mt-5">
+          <h3 className="bold">Publication date</h3>
+          <p className="gray">{book.publicationDate}</p>
+          <h3 className="mt-4 bold">Pages</h3>
+          <p className="gray">{book.pages}</p>
+          <h3 className="mt-4 red bold">ISBN</h3>
+          <p className="gray">{book.isbn}</p>
         </div>
-    )
-}
+        <br />
+        <h2 className="detxt timesNew mb-4">About this book</h2>
+        <p className="gray text-justify pb-5">{book.about}</p>
+        <br />
+        <button className="btn-red bwhkn2 mb-3" onClick={() => addList()}>
+          Add My list <img className="ml-3" src={list} alt="" />
+        </button>
+        <button className="sign-in bwhknn mb-3" onClick={() => readEpub()}>
+          Read Book {" >"}
+        </button>
+      </div>
+    </div>
+  );
+};
 
 export default Detailbook;

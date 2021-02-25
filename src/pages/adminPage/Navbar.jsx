@@ -1,6 +1,9 @@
 import React, { useContext, useState } from "react";
 import wow from '../landingPage/img/wow.png';
 import foto from '../../component/image/Profile.png';
+import add from './image/addBook.png';
+import logOut from './image/logoutRed.png';
+import list from './image/list.png';
 import "./dropStyles.css";
 import { BrowserRouter as Router, Link } from "react-router-dom";
 import { AppContext } from "../../component/GlobalContext";
@@ -23,23 +26,23 @@ const Navbar = () => {
             <div className="container">
                 <div className="menu-container"> 
                      <button onClick={onClick} className="menu-trigger">
-                    <img className="logowow mt-5 sticky right mr-5" src={foto} />
+                    <img className="logowow mt-5 sticky right mr-5" src={foto} alt=""/>
                     </button>
                     <nav className={`menu ${isActive ? "active" : ""}`} >
                         <ul>
                             <li>
-                            <Link to="/add" as={Link} >
-                                {/* <img  className="mr-3" src={add} alt=""/> */}
+                            <Link to="/add" as={Link} className="bold">
+                                <img  className="mr-3" src={add} alt="" width="35px"/>
                                 Add Book</Link>
                             </li>
                             <li>
-                            <Link to="/list" as={Link} >
-                                {/* <img  className="mr-3" src={sub} alt=""/> */}
+                            <Link to="/list" as={Link} className="bold">
+                               <img  className="mr-3" src={list} alt="" width="35px"/>
                                 Transaction</Link>
                             </li>
                             <li>
-                             <Link to="/" as={Link} onClick={handleLogOut} >
-                                {/* <img  className="mr-3" src={sub} alt=""/> */}
+                             <Link to="/" as={Link} onClick={handleLogOut} className="bold">
+                                <img  className="mr-3" src={logOut} alt="" width="35px"/>
                                 Log Out</Link>
                             </li>
                         </ul>
