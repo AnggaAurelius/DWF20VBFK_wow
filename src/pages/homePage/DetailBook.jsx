@@ -3,10 +3,14 @@ import list from "./image/myList.png";
 import SideBar from "../../component/SideBar";
 import { useParams, useHistory } from "react-router-dom";
 import { API } from "../../config/api";
+import { Button, Modal } from "react-bootstrap";
 
 export const Detailbook = () => {
   const [loading, setLoading] = useState(true);
   const history = useHistory();
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   const { id } = useParams();
   const [book, setBook] = useState([]);
   const getBook = async () => {
@@ -25,7 +29,7 @@ export const Detailbook = () => {
       setLoading(true);
       await API.post(`/addlist/${id}`);
 
-      alert("ok");
+      handleShow();
       setLoading(false);
     } catch (error) {
       console.log(error);
@@ -70,6 +74,12 @@ export const Detailbook = () => {
           Read Book {" >"}
         </button>
       </div>
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Info</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Successfully added book</Modal.Body>
+      </Modal>
     </div>
   );
 };

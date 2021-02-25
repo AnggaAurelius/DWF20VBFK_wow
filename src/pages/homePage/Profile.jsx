@@ -191,7 +191,11 @@ const Profile = () => {
           <h2 className="timesNew pt-5 pb-5">My List Book</h2>
           <div className="row">
             {book.map((Books) => (
-              <div className=" mr-3 " style={{ width: 200 }} key={Books.id}>
+              <div
+                className=" mr-3 ml-3 "
+                style={{ width: 200 }}
+                key={Books.id}
+              >
                 <img
                   className="lbook flink profilPic"
                   src={`http://localhost:5000/uploads/${Books.thumbnail}`}
