@@ -233,7 +233,7 @@ const Profile = () => {
                   required
                 />
               </Form.Group>
-              <Form.Label>Phone</Form.Label>
+              <h5>Phone</h5>
               <Form.Group controlId="" className="">
                 <Form.Control
                   className=""
@@ -245,7 +245,7 @@ const Profile = () => {
                   required
                 />
               </Form.Group>
-              <Form.Label>Address</Form.Label>
+              <h5>Address</h5>
               <Form.Group controlId="" className="">
                 <Form.Control
                   className=""

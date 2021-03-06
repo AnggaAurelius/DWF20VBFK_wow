@@ -1,19 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import './App.css';
-import './font.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import App from './App';
-
-
-
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import "./App.css";
+import "./font.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import App from "./App";
+import { AppContextProvider } from "./component/GlobalContext";
 
 ReactDOM.render(
-  <App />, document.getElementById('root')
+  <AppContextProvider>
+    <App />
+  </AppContextProvider>,
+  document.getElementById("root")
 );
-
-
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

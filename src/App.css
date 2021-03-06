@@ -117,8 +117,9 @@ body {
   transform: rotate(-20deg);
 }
 .foto {
-  height: 90px;
-  width: auto;
+  height: 100px;
+  width: 100px;
+  border-radius: 100px;
 }
 .bold {
   font-weight: bold;

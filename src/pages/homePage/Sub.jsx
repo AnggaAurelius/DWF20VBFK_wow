@@ -5,7 +5,7 @@ import file from "./image/Attache.png";
 import SideBar from "../../component/SideBar";
 import ImageUploading from "react-images-uploading";
 import { API } from "../../config/api";
-// import { Button, Form } from 'react-bootstrap';
+
 import { useHistory } from "react-router-dom";
 import { createBrowserHistory } from "history";
 
@@ -13,7 +13,7 @@ export const Sub = () => {
   const history = useHistory();
   const history2 = createBrowserHistory();
   const path = history2.location.pathname;
-  const [state, dispatch] = useContext(AppContext);
+  const [, dispatch] = useContext(AppContext);
   const [modal, setModal] = useState(false);
   const premium = () => {
     setModal(true);

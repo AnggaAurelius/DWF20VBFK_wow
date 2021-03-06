@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import "./pages/landingPage/style.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { AppContext, AppContextProvider } from "./component/GlobalContext";
+import { AppContext } from "./component/GlobalContext";
 import { PrivateRoute } from "./component/PrivateRoute";
-// import { PremiumRoute } from "./component/PremiumRoute"
 import { AdminRoute } from "./component/AdminRoute";
 import { API, setAuthToken } from "./config/api";
 
@@ -24,51 +23,48 @@ if (localStorage.token) {
 }
 
 const App = () => {
-  const [state, dispatch] = useState(AppContext);
+  const [, dispatch] = useContext(AppContext);
 
-  const checkUser = async () => {
-    try {
-      const response = await API.get("/check-auth");
+  useEffect(() => {
+    const checkUser = async () => {
+      try {
+        const response = await API.get("/check-auth");
 
-      if (response.status === 401) {
+        if (response.status === 401) {
+          return dispatch({
+            type: "AUTH_ERROR",
+          });
+        }
+
+        dispatch({
+          type: "USER_LOADED",
+          payload: response.data.data.user,
+        });
+      } catch (error) {
         return dispatch({
           type: "AUTH_ERROR",
         });
       }
-      console.log(response);
-      dispatch({
-        type: "USER_LOADED",
-        payload: response.data.data.user,
-      });
-    } catch (error) {
-      return dispatch({
-        type: "AUTH_ERROR",
-      });
-    }
-  };
-
-  useEffect(() => {
+    };
     checkUser();
-  }, []);
+  }, [dispatch]);
 
   return (
-    <AppContextProvider>
-      <div>
-        <Router>
-          <Switch>
-            <Route path="/" exact component={LandingPage} />
-            <PrivateRoute exact path="/beranda" component={HomePage} />
-            <PrivateRoute path="/profile" exact component={Profile} />
-            <PrivateRoute path="/sub" exact component={Sub} />
-            <PrivateRoute path="/detail/:id" exact component={DetailBook} />
-            <PrivateRoute path="/read/:id" exact component={Read} />
-            <AdminRoute path="/add" exact component={AddBook} />
-            <AdminRoute path="/list" exact component={ListTrans} />
-            <PrivateRoute path="/loading/:back" exact component={Loading} />
-          </Switch>
-        </Router>
-      </div>
-    </AppContextProvider>
+    <div>
+      <Router>
+        <Switch>
+          <Route path="/" exact component={LandingPage} />
+          <PrivateRoute exact path="/beranda" component={HomePage} />
+          <PrivateRoute path="/profile" exact component={Profile} />
+          <PrivateRoute path="/sub" exact component={Sub} />
+          <PrivateRoute path="/detail/:id" exact component={DetailBook} />
+          <PrivateRoute path="/read/:id" exact component={Read} />
+          <AdminRoute path="/add" exact component={AddBook} />
+          <AdminRoute path="/list" exact component={ListTrans} />
+          <PrivateRoute path="/loading/:back" exact component={Loading} />
+        </Switch>
+      </Router>
+    </div>
   );
 };
 
