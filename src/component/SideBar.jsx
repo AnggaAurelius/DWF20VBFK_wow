@@ -35,11 +35,7 @@ export const SideBar = () => {
         <img className="logowow mx-auto d-block" src={wow} alt="" />
       </Link>
       <br />
-      <img
-        className="foto mx-auto d-block"
-        src={`http://localhost:5000/uploads/${data.avatar}`}
-        alt=""
-      />
+      <img className="foto mx-auto d-block" src={data.avatar} alt="" />
       <div>
         <h3 className="text-center font-weight-bold mt-5 mb-4">
           {user.fullName}

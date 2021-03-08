@@ -25,7 +25,6 @@ export const Sub = () => {
   const closeModal = () => {
     setModal(false);
     history.push(`/loading${path}`);
-    console.log("path");
   };
   const [images, setImages] = React.useState([]);
   const maxNumber = 1;
@@ -36,7 +35,7 @@ export const Sub = () => {
   };
 
   const [form, setForm] = useState({
-    imageFile: null,
+    thumbnail: null,
   });
   const [filee, setFile] = useState();
 
@@ -48,7 +47,7 @@ export const Sub = () => {
     setFile(URL.createObjectURL(e.target.files[0]));
   };
 
-  const { imageFile } = form;
+  const { thumbnail } = form;
 
   const submitImage = async (e) => {
     e.preventDefault();
@@ -56,7 +55,7 @@ export const Sub = () => {
     try {
       const body = new FormData();
 
-      body.append("imageFile", imageFile);
+      body.append("thumbnail", thumbnail);
 
       const config = {
         headers: {
@@ -64,10 +63,10 @@ export const Sub = () => {
         },
       };
 
-      await API.post("/addTransaction", body, config);
+      await API.post("/add-transaction", body, config);
 
       setForm({
-        imageFile: null,
+        thumbnail: null,
       });
     } catch (error) {
       console.log(error);
@@ -123,7 +122,7 @@ export const Sub = () => {
                   <input
                     type="file"
                     id="actual-btn"
-                    name="imageFile"
+                    name="thumbnail"
                     onChange={(e) => onChange(e)}
                     // onClick={onImageUpload}
                     hidden

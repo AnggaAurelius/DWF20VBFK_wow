@@ -9,6 +9,7 @@ export const Detailbook = () => {
   const [loading, setLoading] = useState(true);
   const history = useHistory();
   const [show, setShow] = useState(false);
+  const [text, setText] = useState("Successfully added book");
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const { id } = useParams();
@@ -27,10 +28,12 @@ export const Detailbook = () => {
   const addList = async () => {
     try {
       setLoading(true);
-      await API.post(`/addlist/${id}`);
-
-      handleShow();
+      const addBook = await API.post(`/addlist/${id}`);
+      if (addBook.data.status === "Error") {
+        setText(addBook.data.message);
+      }
       setLoading(false);
+      handleShow();
     } catch (error) {
       console.log(error);
     }
@@ -43,14 +46,14 @@ export const Detailbook = () => {
   const readEpub = () => history.push(`/read/${id}`);
 
   return loading ? (
-    <h1>.</h1>
+    <h1></h1>
   ) : (
     <div className="bg row pt-4">
       <SideBar />
       <div className="col-md-8">
         <img
           className="cover mt-5 float-left mr-5"
-          src={`http://localhost:5000/uploads/${book.thumbnail}`}
+          src={book.thumbnail}
           alt=""
         />
         <p className="mt-5 timesNew fs-50">{book.title}</p>
@@ -74,11 +77,10 @@ export const Detailbook = () => {
           Read Book {" >"}
         </button>
       </div>
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Info</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>Successfully added book</Modal.Body>
+      <Modal show={show} onHide={handleClose} className="mt-5">
+        <Modal.Body>
+          <h4 className="bold green text-center">{text}</h4>
+        </Modal.Body>
       </Modal>
     </div>
   );

@@ -30,7 +30,7 @@ const Profile = () => {
   const getBook = async () => {
     try {
       const findBook = await API.get(`/mylist`);
-      setBook(findBook.data.data.books);
+      setBook(findBook.data.data.book);
     } catch (error) {
       console.log(error);
     }
@@ -91,7 +91,7 @@ const Profile = () => {
     setShow(true);
   };
   const [form2, setForm2] = useState({
-    imageFile: null,
+    thumbnail: null,
   });
   const [filee, setFile] = useState();
 
@@ -104,7 +104,7 @@ const Profile = () => {
     setFile(URL.createObjectURL(e.target.files[0]));
   };
 
-  const { imageFile } = form2;
+  const { thumbnail } = form2;
 
   const submitImage = async (e) => {
     e.preventDefault();
@@ -112,7 +112,7 @@ const Profile = () => {
     try {
       const body = new FormData();
 
-      body.append("imageFile", imageFile);
+      body.append("thumbnail", thumbnail);
 
       const config = {
         headers: {
@@ -145,9 +145,9 @@ const Profile = () => {
             <div className="mt-5 ml-5">
               <br />
               <br />
-              <div className=" float-right pr-5">
+              <div className=" float-right pr-5 pointer">
                 <img
-                  src={`http://localhost:5000/uploads/${data.avatar}`}
+                  src={data.avatar}
                   alt=""
                   onClick={imgProfile}
                   className="pointer profilPic"
@@ -198,12 +198,14 @@ const Profile = () => {
               >
                 <img
                   className="lbook flink profilPic"
-                  src={`http://localhost:5000/uploads/${Books.thumbnail}`}
+                  src={Books.book.thumbnail}
                   alt=""
-                  onClick={() => subscribe(Books.id)}
+                  onClick={() => subscribe(Books.book.id)}
                 />
-                <h3 className="mt-3 timesNew text-truncate">{Books.title}</h3>
-                <p className="gray">{Books.author}</p>
+                <h3 className="mt-3 timesNew text-truncate">
+                  {Books.book.title}
+                </h3>
+                <p className="gray">{Books.book.author}</p>
               </div>
             ))}
           </div>
@@ -271,7 +273,7 @@ const Profile = () => {
                 <Form.File
                   className="position-relative"
                   required
-                  name="imageFile"
+                  name="thumbnail"
                   onChange={(e) => onChange2(e)}
                   feedbackTooltip
                 />

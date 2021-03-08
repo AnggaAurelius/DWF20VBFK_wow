@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: #e5e5e5;
 }
 
 .App-logo {
@@ -356,4 +357,7 @@ label.coverBtn {
 .profilPic {
   width: 300px;
   height: 250px;
+}
+.pointer {
+  cursor: pointer;
 }
