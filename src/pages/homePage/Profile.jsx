@@ -30,7 +30,7 @@ const Profile = () => {
   const getBook = async () => {
     try {
       const findBook = await API.get(`/mylist`);
-      setBook(findBook.data.data.book);
+      setBook(findBook.data.data.mybook);
     } catch (error) {
       console.log(error);
     }
